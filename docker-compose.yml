@@ -15,6 +15,20 @@ services:
     ports:
       - 3333:3333
 
+  planting_calendar_api:
+    build:
+      context: .
+      dockerfile: plantingCalendar.DockerFile
+    container_name: plantar_planting_calendar_api
+    environment:
+      - API_URL=${PLANTING_CALENDAR_API_URL}
+    restart: always
+    volumes:
+      - ./api/planting-calendar:/usr/src/code/api/planting-calendar
+      - /usr/src/code/api/planting-calendar/node_modules
+    ports:
+      - 8000:8000
+
   client:
     build:
       context: .
@@ -31,3 +45,4 @@ services:
       - 3000:3000
     depends_on:
       - posts_api
+      - planting_calendar_api
