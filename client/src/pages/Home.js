@@ -1,8 +1,12 @@
+import Cards from "../layouts/Cards"
+import Jumbotron from "../layouts/Jumbotron"
+
 
 export default function Home() {
   return(
-    <div>
-      <h2>Home</h2>
-    </div>
+    <>
+      <Jumbotron />
+      <Cards />
+    </>
   )
 }
