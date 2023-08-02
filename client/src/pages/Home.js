@@ -1,5 +1,5 @@
-import Cards from "../layouts/Cards"
-import Jumbotron from "../layouts/Jumbotron"
+import Cards from "../components/Cards"
+import Jumbotron from "../components/Jumbotron"
 
 
 export default function Home() {
