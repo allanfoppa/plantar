@@ -1,0 +1,12 @@
+
+.card-img-top {
+  height: 288px;
+  width: 304px;
+}
+
+#planting-details {
+  border-radius: 4px;
+  border: 1px solid #0DC9B0;
+  background: #0DC9B0;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+}
