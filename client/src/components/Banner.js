@@ -1,4 +1,5 @@
 import Image from 'react-bootstrap/Image'
+import PropTypes from 'prop-types'
 
 
 
@@ -11,4 +12,14 @@ export default function Banner({
       fluid={true}
     />
   )
+}
+
+
+
+/*==========================================================================
+  PROPTYPES
+  ========================================================================== */
+
+Banner.prototype = {
+  iamge: PropTypes.string.isRequired
 }

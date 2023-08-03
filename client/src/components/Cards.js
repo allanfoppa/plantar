@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -146,3 +147,15 @@ const CardsSeeMoreButton = () => {
 /*==========================================================================
   PROPTYPES
   ========================================================================== */
+
+Cards.propTypes = {
+  data: PropTypes.array
+}
+
+CardsBody.propTypes = {
+  info: PropTypes.object
+}
+
+CardsRating.propTypes = {
+  ratingStars: PropTypes.number
+}

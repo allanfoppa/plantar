@@ -1,6 +1,6 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { LinkContainer } from 'react-router-bootstrap'
-
+import PropTypes from 'prop-types'
 
 
 export default function BreadcrumbPath({
@@ -14,4 +14,14 @@ export default function BreadcrumbPath({
       <Breadcrumb.Item active>{activePath}</Breadcrumb.Item>
     </Breadcrumb>
   )
+}
+
+
+
+/*==========================================================================
+  PROPTYPES
+  ========================================================================== */
+
+BreadcrumbPath.propTypes = {
+  activePath: PropTypes.string.isRequired
 }
