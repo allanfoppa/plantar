@@ -37,6 +37,7 @@ services:
     environment:
       - WATCHPACK_POLLING=true
       - REACT_APP_POSTS_API_BASE_URL=${POSTS_API_URL}
+      - REACT_APP_GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
     restart: always
     volumes:
       - ./client:/usr/src/code/client
