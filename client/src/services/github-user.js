@@ -7,7 +7,7 @@ export default async function githubUserService({
   // Create a personal access token
   // at https://github.com/settings/tokens/new?scopes=repo
   const token = process.env.REACT_APP_GITHUB_API_TOKEN
-  const octokit = new Octokit({ auth: token });
+  const octokit = new Octokit({ auth: token })
 
   return await octokit.request('GET /users/{username}', {
     username: userName,
