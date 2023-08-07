@@ -1,4 +1,7 @@
-# CLIENT (WIP)
+# CLIENT
 
-https://react.dev/
-https://react-bootstrap.netlify.app/
+## USEFUL LINKS
+
+- [React](https://react.dev/)
+- [React Bootstrap](https://react-bootstrap.netlify.app/)
+- [React simple start rating](react-simple-star-rating)
