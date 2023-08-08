@@ -14,5 +14,9 @@ tags_metadata = [
   {
     "name": "hello-world-V2",
     "description": "Hello world welcome V2",
+  },
+  {
+    "name": "calendar",
+    "description": "Planting calendar content",
   }
 ]

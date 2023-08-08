@@ -7,184 +7,19 @@ import Table from 'react-bootstrap/Table';
 import '../assets/styles/planting-calendar.css'
 
 import bannerImage from '../assets/images/planting-calendar-banner.png'
+import { fetchPlantingCalendar } from "../services/fetchPlantingCalendar";
 
 export default function PlantingCalendar() {
 
   const [ data, setData ] = useState([])
 
   useEffect(() => {
-    const content = [
-      {
-        "região-sul": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-sudeste": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-nordeste": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-norte": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      }
-    ]
+    async function fetchData() {
+      const response = await fetchPlantingCalendar()
+      setData(response.data)
+    }
 
-    setData(content)
+    fetchData()
   }, [])
 
   return(
