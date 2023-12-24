@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react"
+import PropTypes from 'prop-types'
 import Container from 'react-bootstrap/esm/Container'
 import BreadcrumbPath from '../components/Breadcrumb'
 import Image from 'react-bootstrap/Image'
@@ -7,184 +8,19 @@ import Table from 'react-bootstrap/Table';
 import '../assets/styles/planting-calendar.css'
 
 import bannerImage from '../assets/images/planting-calendar-banner.png'
+import { fetchPlantingCalendar } from "../services/fetchPlantingCalendar";
 
 export default function PlantingCalendar() {
 
   const [ data, setData ] = useState([])
 
   useEffect(() => {
-    const content = [
-      {
-        "região-sul": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-sudeste": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-nordeste": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      },
-      {
-        "região-norte": [
-          {
-            "abril": [
-              "Aveia",
-              "Erva Mate"
-            ]
-          },
-          {
-            "maio": [
-              "Trigo",
-            ]
-          },
-          {
-            "julho": [
-              "Ameixa",
-              "Uva"
-            ]
-          },
-          {
-            "Agosto": [
-              "Feijão",
-              "Fumo",
-              "Milho",
-              "Tomate"
-            ]
-          },
-          {
-            "Setembro": [
-              "Arroz",
-              "Amendoin",
-              "Café",
-              "Soja"
-            ]
-          },
-          {
-            "Outubro": [
-              "Cítricos"
-            ]
-          }
-        ]
-      }
-    ]
+    async function fetchData() {
+      const response = await fetchPlantingCalendar()
+      setData(response.data)
+    }
 
-    setData(content)
+    fetchData()
   }, [])
 
   return(
@@ -197,7 +33,7 @@ export default function PlantingCalendar() {
       <Image src={bannerImage} fluid />
       <Container>
         <BreadcrumbPath
-          activePath="Teste"
+          activePath="Calendário de plantio"
         />
         <PageTitle text="Calendário de plantio" />
         <PostUpdated
@@ -330,4 +166,25 @@ const PlatingTable = ({
       )}
     </>
   )
+}
+
+/*==========================================================================
+  PROPTYPES
+========================================================================== */
+
+PageTitle.propTypes = {
+  text: PropTypes.string
+}
+
+PostUpdated.propTypes = {
+  is_to_show: PropTypes.bool,
+  text: PropTypes.string
+}
+
+PageSubtitle.propTypes = {
+  text: PropTypes.string
+}
+
+PlatingTable.propTypes = {
+  data: PropTypes.array
 }

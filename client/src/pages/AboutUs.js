@@ -36,7 +36,6 @@ export default function AboutUs() {
       setUsers(usersReturn)
     })
 
-    console.log('A', users)
   }, [])
 
   return(

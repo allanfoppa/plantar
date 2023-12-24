@@ -1,5 +1,5 @@
 # PULL NODE.JS 18 VERSION
-FROM node:18
+FROM node:20
 
 # INSIDE CONTAINER, WE WORK AT
 WORKDIR /usr/src/code/client

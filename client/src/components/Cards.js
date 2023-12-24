@@ -7,8 +7,9 @@ import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Rating } from 'react-simple-star-rating'
-import '../assets/styles/cards.css'
 import { PATHS } from '../routes/paths';
+
+import '../assets/styles/cards.css'
 
 import bananeira from '../temp/bananeira.png'
 import alfaceAmericana from '../temp/alface-americana.png'
@@ -70,7 +71,7 @@ export default function Cards() {
       className='py-5'
     >
       <Row>
-        { data.map((i, index) =>
+        {data.map((i, index) =>
           <Col lg={3} key={index}>
             <CardsBody info={i} />
           </Col>
@@ -114,10 +115,8 @@ const CardsRating = ({
 
   // Catch Rating value
   const handleRating = (rate) => {
-    // setRating(rate)
-    // other logic
+    setRating(rate)
     setShowTooltipValue(true)
-    console.log('AQUIII', rate)
   }
 
   return (
