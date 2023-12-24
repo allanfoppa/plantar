@@ -8,6 +8,7 @@ import tempImage from '../temp/banner-detail-example.png'
 export default function Details() {
 
   const mock = {
+    "id": 1,
     "is_updated": true,
     "banner": "url",
     "updated_time": "01/01/2023 16h00",

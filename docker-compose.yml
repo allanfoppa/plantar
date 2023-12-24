@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+
+  database:
+    image: postgres:15
+    container_name: plantar_db
+    environment:
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - 5432:5432
+
   posts_api:
     build:
       context: .
@@ -21,11 +33,10 @@ services:
       dockerfile: plantingCalendar.DockerFile
     container_name: plantar_planting_calendar_api
     environment:
-      - API_URL=${PLANTING_CALENDAR_API_URL}
+      - API_URL=${PLANTING_CALENDAR_API_URL_V1}
     restart: always
     volumes:
       - ./api/planting-calendar:/usr/src/code/api/planting-calendar
-      - /usr/src/code/api/planting-calendar/node_modules
     ports:
       - 8000:8000
 
@@ -37,6 +48,7 @@ services:
     environment:
       - WATCHPACK_POLLING=true
       - REACT_APP_POSTS_API_BASE_URL=${POSTS_API_URL}
+      - REACT_APP_PLANTING_CALENDAR_API_BASE_URL_V1=${PLANTING_CALENDAR_API_URL_V1}
       - REACT_APP_GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
     restart: always
     volumes:

@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react"
+import PropTypes from 'prop-types'
 import Container from 'react-bootstrap/esm/Container'
 import BreadcrumbPath from '../components/Breadcrumb'
 import Image from 'react-bootstrap/Image'
@@ -32,7 +33,7 @@ export default function PlantingCalendar() {
       <Image src={bannerImage} fluid />
       <Container>
         <BreadcrumbPath
-          activePath="Teste"
+          activePath="Calendário de plantio"
         />
         <PageTitle text="Calendário de plantio" />
         <PostUpdated
@@ -165,4 +166,25 @@ const PlatingTable = ({
       )}
     </>
   )
+}
+
+/*==========================================================================
+  PROPTYPES
+========================================================================== */
+
+PageTitle.propTypes = {
+  text: PropTypes.string
+}
+
+PostUpdated.propTypes = {
+  is_to_show: PropTypes.bool,
+  text: PropTypes.string
+}
+
+PageSubtitle.propTypes = {
+  text: PropTypes.string
+}
+
+PlatingTable.propTypes = {
+  data: PropTypes.array
 }
